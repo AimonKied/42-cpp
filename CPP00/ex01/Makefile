@@ -6,32 +6,42 @@
 #    By: swied <swied@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/08 00:00:00 by swied             #+#    #+#              #
-#    Updated: 2025/10/08 12:43:16 by swied            ###   ########.fr        #
+#    Updated: 2025/10/08 16:37:32 by swied            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
-
-SRCS = main.cpp Contact.cpp PhoneBook.cpp
-
-OBJS = $(SRCS:.cpp=.o)
-
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
+SRCDIR = .
+SOURCES = Contact.cpp PhoneBook.cpp main.cpp
+OBJECTS = $(SOURCES:.cpp=.o)
+
+RED = \033[0;31m
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+BLUE = \033[0;34m
+RESET = \033[0m
+
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+$(NAME): $(OBJECTS)
+	@echo "$(GREEN)Linking $(NAME)...$(RESET)"
+	@$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(NAME)
+	@echo "$(GREEN)$(NAME) compiled successfully!$(RESET)"
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo "$(BLUE)Compiling $<...$(RESET)"
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@echo "$(YELLOW)Cleaning object files...$(RESET)"
+	@rm -f $(OBJECTS)
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "$(RED)Removing $(NAME)...$(RESET)"
+	@rm -f $(NAME)
 
 re: fclean all
 
