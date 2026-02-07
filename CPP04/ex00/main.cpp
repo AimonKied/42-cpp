@@ -6,7 +6,7 @@
 /*   By: swied <swied@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 11:32:27 by swied             #+#    #+#             */
-/*   Updated: 2026/01/09 11:40:11 by swied            ###   ########.fr       */
+/*   Updated: 2026/02/07 01:12:59 by swied            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ int main() {
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
-	std::cout << std::endl;
-	std::cout << "j type: " << j->getType() << std::endl;
-	std::cout << "i type: " << i->getType() << std::endl;
-
-	std::cout << std::endl;
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
 	j->makeSound();
 	meta->makeSound();

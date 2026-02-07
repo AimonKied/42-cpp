@@ -6,7 +6,7 @@
 /*   By: swied <swied@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 11:33:01 by swied             #+#    #+#             */
-/*   Updated: 2026/01/09 11:42:19 by swied            ###   ########.fr       */
+/*   Updated: 2026/02/07 01:15:52 by swied            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ public:
 	Cat();
 	Cat(const Cat& other);
 	Cat& operator=(const Cat& other);
-	virtual ~Cat();
+	~Cat();
 
-	virtual void makeSound() const;
+	void makeSound() const;
 };
 
 #endif
